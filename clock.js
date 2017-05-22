@@ -29,17 +29,11 @@ new Vue({
             interval : null
         }
     },
-    watch: {
-        updateInterval: function () {
-    	    this.resetInterval()
-        }
-    },
     mounted: function () {
-        this.resetInterval()
+        this.startClock()
     },
     methods: {
         updateClock: function (){
-            
             var t =new Date()
             var m = t.getMilliseconds() / 1000
             var degSecond = ((t.getSeconds() + m) * (360 /60)) * Math.PI / 180
@@ -52,7 +46,7 @@ new Vue({
             this.hour.x =this.clockX + (this.clockR - (this.clockR / 3)) * Math.sin(degHour)
             this.hour.y =this.clockY - (this.clockR - (this.clockR / 3)) * Math.cos(degHour)
         },
-        resetInterval: function () {
+        startClock: function () {
             var vm = this
             clearInterval(this.interval)
             this.updateClock()
