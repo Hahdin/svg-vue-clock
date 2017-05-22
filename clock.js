@@ -8,7 +8,7 @@ new Vue({
             clockX: 200,
             clockY: 200,
             clockR: 180,
-            updateInterval: 60,
+            updateInterval: 30,
             second: {x: 10, y: 10},
             minute: {x: 10, y: 10},
             hour: {x: 10, y: 10},

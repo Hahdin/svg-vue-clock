@@ -18,10 +18,10 @@
             <circle  :cx="clockX" :cy="clockY" :r="clockR" fill="url(#grad1)"></circle>
             <line id="hour" :x1="clockX" :y1="clockY" :x2="hour.x" :y2="hour.y" 
                 :style="{stroke: myStyle.hour.color, strokeWidth:myStyle.hour.width, strokeLinecap: 'round'}" />
-            <line id="min" :x1="clockX" :y1="clockY" :x2="second.x" :y2="second.y" 
-                :style="{stroke: myStyle.second.color, strokeWidth:myStyle.second.width, strokeLinecap: 'round'}" />
-            <line id="sec" :x1="clockX" :y1="clockY" :x2="minute.x" :y2="minute.y" 
+            <line id="min" :x1="clockX" :y1="clockY" :x2="minute.x" :y2="minute.y" 
                 :style="{stroke: myStyle.minute.color, strokeWidth:myStyle.minute.width, strokeLinecap: 'round'}" />
+            <line id="sec" :x1="clockX" :y1="clockY" :x2="second.x" :y2="second.y" 
+                :style="{stroke: myStyle.second.color, strokeWidth:myStyle.second.width, strokeLinecap: 'round'}" />
         </svg>
     </div>
     <script src="clock.js"></script>
