@@ -6,8 +6,10 @@
     <script src="https://unpkg.com/vue"></script>
 
 </head>
+
 <body >
-    <div id="clock">
+    <div id="clock" v-on:click="toggleDigits">
+        
         <svg :width="svgWidth" :height="svgHeight">
             <defs>
                 <radialGradient id="grad1" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
@@ -23,8 +25,19 @@
             <line id="sec" :x1="clockX" :y1="clockY" :x2="second.x" :y2="second.y" 
                 :style="{stroke: myStyle.second.color, strokeWidth:myStyle.second.width, strokeLinecap: 'round'}" />
         </svg>
+        <div id="digits"     
+        :style="{position: myStyle.digits.pos, left: myStyle.digits.x, 
+        top:myStyle.digits.y, fontSize:myStyle.digits.size, width: myStyle.digits.w,
+        backgroundColor:myStyle.digits.bg, color: myStyle.digits.clr, 
+        padding: myStyle.digits.pad, margin: myStyle.digits.margin }">
+            <p v-if="showText">{{getDate()}}</p>
+        </div>
+
     </div>
     <script src="clock.js"></script>
 </body>
 </html>
 
+<!--
+    :style="{position: myStyle.digits.pos, right: myStyle.digits.x, top:myStyle.digits.y}"
+    -->
