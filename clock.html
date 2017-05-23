@@ -24,19 +24,20 @@
             </defs>            
             <circle  :cx="clockX" :cy="clockY" :r="clockR" fill="url(#grad1)"></circle>
             <line id="hour" :x1="clockX" :y1="clockY" :x2="hour.x" :y2="hour.y" 
-                :style="{stroke: myStyle.hour.color, strokeWidth:myStyle.hour.width, strokeLinecap: 'round'}" />
+                :style="{stroke: myStyle.hour.color, strokeWidth:myStyle.hour.width, 
+                strokeLinecap: 'round'}" />
             <line id="min" :x1="clockX" :y1="clockY" :x2="minute.x" :y2="minute.y" 
-                :style="{stroke: myStyle.minute.color, strokeWidth:myStyle.minute.width, strokeLinecap: 'round'}" />
+                :style="{stroke: myStyle.minute.color, strokeWidth:myStyle.minute.width, 
+                strokeLinecap: 'round'}" />
             <line id="sec" :x1="clockX" :y1="clockY" :x2="second.x" :y2="second.y" 
-                :style="{stroke: myStyle.second.color, strokeWidth:myStyle.second.width, strokeLinecap: 'round'}" />
-                <text font-size="30px"  v-if="showText" :x="clockX + (clockR / 4)" :y="clockY" 
-                fill="white" :transform="myStyle.dateText.transform" filter="url(#f1)">{{getDate()}}</text>
+                :style="{stroke: myStyle.second.color, strokeWidth:myStyle.second.width, 
+                strokeLinecap: 'round'}" />
+            <text font-size="30px"  v-if="showText" :x="clockX + (clockR / 4)" :y="clockY" 
+                fill="white" :transform="myStyle.dateText.transform" stroke="grey" stroke-width="0.5"
+                filter="url(#f1)">{{getDate()}}</text>
         </svg>
     </div>
     <script src="clock.js"></script>
 </body>
 </html>
 
-<!--
-    :style="{position: myStyle.digits.pos, right: myStyle.digits.x, top:myStyle.digits.y}"
-    -->
