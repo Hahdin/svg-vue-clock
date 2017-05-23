@@ -26,17 +26,9 @@ new Vue({
                     color: 'green',
                     width: 15.5
                 },
-                digits: {
-                    pos: 'absolute',
-                    x: '300px',
-                    y: '450px',
-                    w: '200px',
-                    size: '20px',
-                    bg: 'rgba(255, 0, 255, 0.1)',
-                    clr: 'black',
-                    pad: '10px',
-                    margin: 'auto'
-
+                dateText: {
+                   // transform: "rotate(30 20,40)"
+                    transform: ""
                 }
             },
             interval : null
@@ -52,7 +44,6 @@ new Vue({
         },
         toggleDigits: function(){
             this.showText = !this.showText
-            this.myStyle.digits.pad = this.showText ? '15px' : '0px'
         },
         updateClock: function (){
             var t =new Date()

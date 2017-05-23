@@ -16,6 +16,11 @@
                 <stop offset="0%" style="stop-color:rgb(255,255,255);stop-opacity:0" />
                 <stop offset="100%" style="stop-color:rgb(0,0,0);stop-opacity:1" />
                 </radialGradient>
+                <filter id="f1" x="0" y="0" width="110%" height="110%">
+                    <feOffset result="offOut" in="SourceAlpha" dx="2" dy="2" />
+                    <feGaussianBlur result="blurOut" in="offOut" stdDeviation="1" />
+                    <feBlend in="SourceGraphic" in2="blurOut" mode="normal" />
+                </filter>
             </defs>            
             <circle  :cx="clockX" :cy="clockY" :r="clockR" fill="url(#grad1)"></circle>
             <line id="hour" :x1="clockX" :y1="clockY" :x2="hour.x" :y2="hour.y" 
@@ -24,15 +29,9 @@
                 :style="{stroke: myStyle.minute.color, strokeWidth:myStyle.minute.width, strokeLinecap: 'round'}" />
             <line id="sec" :x1="clockX" :y1="clockY" :x2="second.x" :y2="second.y" 
                 :style="{stroke: myStyle.second.color, strokeWidth:myStyle.second.width, strokeLinecap: 'round'}" />
+                <text font-size="30px"  v-if="showText" :x="clockX + (clockR / 4)" :y="clockY" 
+                fill="white" :transform="myStyle.dateText.transform" filter="url(#f1)">{{getDate()}}</text>
         </svg>
-        <div id="digits"     
-        :style="{position: myStyle.digits.pos, left: myStyle.digits.x, 
-        top:myStyle.digits.y, fontSize:myStyle.digits.size, width: myStyle.digits.w,
-        backgroundColor:myStyle.digits.bg, color: myStyle.digits.clr, 
-        padding: myStyle.digits.pad, margin: myStyle.digits.margin }">
-            <p v-if="showText">{{getDate()}}</p>
-        </div>
-
     </div>
     <script src="clock.js"></script>
 </body>
