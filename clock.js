@@ -46,17 +46,17 @@ new Vue({
             this.showText = !this.showText
         },
         updateClock: function (){
-            var t =new Date()
+            var t = new Date()
             var m = t.getMilliseconds() / 1000
             var degSecond = ((t.getSeconds() + m) * (360 /60)) * Math.PI / 180
             var degMinute = ((t.getMinutes() + t.getSeconds() / 60 ) * (360 /60)) * Math.PI / 180
             var degHour = ((t.getHours() + t.getMinutes() / 60 ) * (360 /12)) * Math.PI / 180
-            this.second.x =this.clockX + this.clockR * Math.sin(degSecond ) + 2
-            this.second.y =this.clockY - this.clockR * Math.cos(degSecond ) + 2
-            this.minute.x =this.clockX + (this.clockR - (this.clockR / 7)) * Math.sin(degMinute)
-            this.minute.y =this.clockY - (this.clockR - (this.clockR / 7)) * Math.cos(degMinute)
-            this.hour.x =this.clockX + (this.clockR - (this.clockR / 3)) * Math.sin(degHour)
-            this.hour.y =this.clockY - (this.clockR - (this.clockR / 3)) * Math.cos(degHour)
+            this.second.x = this.clockX + (this.clockR + 2) * Math.sin(degSecond )
+            this.second.y = this.clockY - (this.clockR + 2) * Math.cos(degSecond )
+            this.minute.x = this.clockX + (this.clockR - (this.clockR / 7)) * Math.sin(degMinute)
+            this.minute.y = this.clockY - (this.clockR - (this.clockR / 7)) * Math.cos(degMinute)
+            this.hour.x = this.clockX + (this.clockR - (this.clockR / 3)) * Math.sin(degHour)
+            this.hour.y = this.clockY - (this.clockR - (this.clockR / 3)) * Math.cos(degHour)
         },
         startClock: function () {
             var vm = this
